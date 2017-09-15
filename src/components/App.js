@@ -16,3 +16,9 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.defaultProps = {
+  headerTitle: 'Default header',
+  contentTitle: 'Default contentTitle',
+  contentBody: 'Default contentBody'
+}
