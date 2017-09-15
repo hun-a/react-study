@@ -1,0 +1,36 @@
+{
+  "name": "react-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "public/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/.bin/babel --watch --out-dir public src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seunghun-kim/react-study.git"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "ui"
+  ],
+  "author": "huna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seunghun-kim/react-study/issues"
+  },
+  "homepage": "https://github.com/seunghun-kim/react-study#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
