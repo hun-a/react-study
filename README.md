@@ -4,7 +4,7 @@
 # How to run?
 - clone this repository to your local
 ```
-$ git clone git@github.com:seunghun-kim/electron.git
+$ git clone git@github.com:seunghun-kim/react-study.git
 ```
 
 - install the packages
