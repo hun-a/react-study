@@ -7,6 +7,7 @@ export default class ContactInfo extends React.Component {
   }
 
   render() {
+    console.log('rendered: ' + this.props.name);
     let getStyle = isSelect => {
       if (!isSelect) return;
 

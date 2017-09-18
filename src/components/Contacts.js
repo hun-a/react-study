@@ -3,6 +3,7 @@ import ContactInfo from './ContactInfo';
 import update from 'react-addons-update';
 import ContactCreator from './ContactCreator';
 import ContactRemover from './ContactRemover';
+import ContactEditor from './ContactEditor';
 
 export default class Contacts extends React.Component {
   constructor(props) {
@@ -13,7 +14,12 @@ export default class Contacts extends React.Component {
         {name: 'Betty', phone: '010-0000-0002'},
         {name: 'Charlie', phone: '010-0000-0003'},
         {name: 'David', phone: '010-0000-0004'}
-      ]
+      ],
+      selectedKey: -1,
+      selected: {
+        name: '',
+        phone: ''
+      }
     };
   }
 
@@ -33,13 +39,18 @@ export default class Contacts extends React.Component {
     if (key == this.state.selectedKey) {
       console.log('key select cancelled');
       this.setState({
-        selectedKey: -1
+        selectedKey: -1,
+        selected: {
+          name: '',
+          phone: ''
+        }
       });
-      relturn;
+      return;
     }
 
     this.setState({
-      selectedKey: key
+      selectedKey: key,
+      selected: this.state.contactData[key]
     });
     console.log(key + ' is selected');
   }
@@ -69,6 +80,23 @@ export default class Contacts extends React.Component {
     });
   }
 
+  _editContact(name, phone) {
+    this.setState({
+      contactData: update(
+        this.state.contactData,
+        {
+          [this.state.selectedKey]: {
+            name: { $set: name },
+            phone: { $set: phone }
+          }
+        }
+      ),
+      selected: {
+        name, phone
+      }
+    });
+  }
+
   render() {
     return(
       <div>
@@ -86,8 +114,17 @@ export default class Contacts extends React.Component {
                 />);
           })}
         </ul>
-        <ContactCreator onInsert={this._insertContact.bind(this)} />
-        <ContactRemover onRemove={this._removeContact.bind(this)} />
+        <ContactCreator
+          onInsert={this._insertContact.bind(this)}
+        />
+        <ContactRemover
+          onRemove={this._removeContact.bind(this)}
+        />
+        <ContactEditor
+          onEdit={this._editContact.bind(this)}
+          isSelected={this.state.selectedKey != -1}
+          contact={this.state.selected}
+        />
       </div>
     );
   }
