@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ContactInfo extends React.Component {  
+export default class ContactInfo extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return (JSON.stringify(nextProps) != JSON.stringify(this.props));
   }
@@ -26,7 +26,7 @@ export default class ContactInfo extends React.Component {
       <li
         style={getStyle(this.props.isSelected)}
         onClick={this.handleClick.bind(this)}
-      >
+      
         {this.props.name} {this.props.phone}
       </li>
     );
