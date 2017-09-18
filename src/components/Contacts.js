@@ -28,6 +28,29 @@ export default class Contacts extends React.Component {
     this.setState(newState);
   }
 
+  _onSelect(key) {
+    if (key == this.state.selectedKey) {
+      console.log('key select cancelled');
+      this.setState({
+        selectedKey: -1
+      });
+      relturn;
+    }
+
+    this.setState({
+      selectedKey: key
+    });
+    console.log(key + ' is selected');
+  }
+
+  _isSelected(key) {
+    if (this.state.selectedKey == key) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   render() {
     return(
       <div>
@@ -39,6 +62,9 @@ export default class Contacts extends React.Component {
                   name={contact.name}
                   phone={contact.phone}
                   key={index}
+                  contactKey={index}
+                  isSelected={this._isSelected.bind(this)(index)}
+                  onSelect={this._onSelect.bind(this)}
                 />);
           })}
         </ul>
