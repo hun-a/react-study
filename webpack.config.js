@@ -1,3 +1,5 @@
+import webpack from 'webpack';
+
 const plugins = [];
 const TRAVIS = process.env.TRAVIS ? JSON.parse(process.env.TRAVIS) : false;
 
