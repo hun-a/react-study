@@ -26,7 +26,7 @@ export default class ContactInfo extends React.Component {
       <li
         style={getStyle(this.props.isSelected)}
         onClick={this.handleClick.bind(this)}
-      
+      >
         {this.props.name} {this.props.phone}
       </li>
     );
