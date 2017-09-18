@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/seunghun-kim/react-study.svg)](https://travis-ci.org/seunghun-kim/react-study)
+
 # What's this?
 - This is my personal study for React!
 
