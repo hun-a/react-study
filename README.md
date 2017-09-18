@@ -14,11 +14,6 @@ $ git clone git@github.com:seunghun-kim/react-study.git
 $ npm install
 ```
 
-- run babel
-```
-$ npm run watch
-```
-
 - run this program!
 ```
 $ npm start
