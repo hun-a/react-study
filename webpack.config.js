@@ -1,4 +1,13 @@
-module.exports = {
+const plugins = [];
+const TRAVIS = process.env.TRAVIS ? JSON.parse(process.env.TRAVIS) : false;
+
+if (TRAVIS) {
+  console.log('TRAVIS ode (will fail on error)');
+  plugins.push(new webpack.NoErrorsPlugin());
+}
+
+const config = {
+  bail: TRAVIS,
   entry: './src/index.js',
 
   output: {
@@ -26,3 +35,5 @@ module.exports = {
     ]
   }
 };
+
+module.exports = config;
